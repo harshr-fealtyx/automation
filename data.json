@@ -1,0 +1,22 @@
+{
+    "credentials": {
+      "email": "emailid",
+      "password": "password"
+    },
+    "offerdetails":{
+      "offername":"offerx",
+      "offerdisplay":"offer 2142315 aug  display",
+      "offerterms":[
+        "zterm"," 9term"
+      ],
+      "offertype":"instant",
+      "startdate":"August 23, 2024"
+
+    },
+    "discount":{
+      "type":"flat",
+      "mov":596,
+      "discountworth":174
+    }
+  }
+  
