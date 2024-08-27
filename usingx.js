@@ -16,6 +16,19 @@ async function example() {
   const config = JSON.parse(fs.readFileSync('data.json', 'utf8'));
   let chromeOptions = new chrome.Options();
   chromeOptions.addArguments('--disable-popup-blocking'); // To avoid any popup issues
+  // chromeOptions.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2}) 
+chromeOptions.addArguments("--no-sandbox") 
+chromeOptions.addArguments("--disable-setuid-sandbox") 
+
+chromeOptions.addArguments("--remote-debugging-port=9222") 
+
+chromeOptions.addArguments("--disable-dev-shm-using") 
+chromeOptions.addArguments("--disable-extensions") 
+chromeOptions.addArguments("--disable-gpu") 
+chromeOptions.addArguments("start-maximized") 
+chromeOptions.addArguments("disable-infobars")
+chromeOptions.addArguments(r"user-data-dir=.\cookies\\test") 
+
 
   // let driver = await new Builder()
   //     .forBrowser('chrome')
