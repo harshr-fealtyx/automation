@@ -63,23 +63,24 @@ chromeOptions.addArguments("disable-infobars")
     // Use XPath to find the email input element
     let emailinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Email or Mobile Number"]')),30000000);
     await emailinput.sendKeys(process.env.email);
-
+  console.log(emailinput);
     // Use XPath to find and click the submit button
     let emailsubmit = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[3]/button')),30000000);
     await emailsubmit.click();
-
+  console.log(emailsubmit);
     // Use XPath to find the password input element
     let passwordinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Password"]')),30000000);
       await passwordinput.sendKeys(process.env.password);
+    console(passwordinput)
       let submitbuttom = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[4]/button')),30000000);
       await submitbuttom.click();
     //login and password end
-    
+    console.log(submitbuttom)
     // await driver.setTimeout(() => {
       
     // }, 2000);
     let offerlink = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div[2]/div[1]/div[2]/nav/div/div[6]/a[1]')), 30000000);
-
+console.log(offerlink)
     //going to offer page
     // let offerlink = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div[2]/div[1]/div[2]/nav/div/div[6]/a[1]')),30000000);
     await offerlink.click();
@@ -90,6 +91,7 @@ chromeOptions.addArguments("disable-infobars")
     //creating new offer
     let createnewofferbutton = await driver.wait(until.elementLocated(By.xpath('/html/body/div[7]/div/button[1]')),30000000);
     await createnewofferbutton.click();
+    console.log(createnewofferbutton);
     let discountcard = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div[2]/div[1]/main/div[2]/div/div[1]/div/div/div/div/div[2]/div[1]/div')),30000000);
     await discountcard.click();
 
