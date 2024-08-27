@@ -71,7 +71,7 @@ chromeOptions.addArguments("disable-infobars")
     // Use XPath to find the password input element
     let passwordinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Password"]')),30000000);
       await passwordinput.sendKeys(process.env.password);
-    console(passwordinput)
+    console.log(passwordinput)
       let submitbuttom = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[4]/button')),30000000);
       await submitbuttom.click();
     //login and password end
