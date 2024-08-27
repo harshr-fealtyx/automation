@@ -194,6 +194,7 @@ chromeOptions.addArguments("disable-infobars")
 };
 
 app.get('/start-automation', async (req, res) => {
+  console.log('automations taart');
   await example();
   res.send('Automation started!');
 });
