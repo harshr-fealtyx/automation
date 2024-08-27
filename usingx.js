@@ -27,7 +27,7 @@ chromeOptions.addArguments("--disable-extensions")
 chromeOptions.addArguments("--disable-gpu") 
 chromeOptions.addArguments("start-maximized") 
 chromeOptions.addArguments("disable-infobars")
-chromeOptions.addArguments(r"user-data-dir=.\cookies\\test") 
+// chromeOptions.addArguments(r"user-data-dir=.\cookies\\test") 
 
 
   // let driver = await new Builder()
