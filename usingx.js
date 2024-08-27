@@ -63,24 +63,24 @@ chromeOptions.addArguments("disable-infobars")
     // Use XPath to find the email input element
     let emailinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Email or Mobile Number"]')),30000000);
     await emailinput.sendKeys(process.env.email);
-  console.log(emailinput);
+  console.log("email input",emailinput);
     // Use XPath to find and click the submit button
     let emailsubmit = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[3]/button')),30000000);
     await emailsubmit.click();
-  console.log(emailsubmit);
+  console.log("email submit",emailsubmit);
     // Use XPath to find the password input element
     let passwordinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Password"]')),30000000);
       await passwordinput.sendKeys(process.env.password);
-    console.log(passwordinput)
+    console.log("password input",passwordinput)
       let submitbuttom = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[4]/button')),30000000);
       await submitbuttom.click();
     //login and password end
-    console.log(submitbuttom)
+    console.log("submit button",submitbuttom)
     // await driver.setTimeout(() => {
       
     // }, 2000);
     let offerlink = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div[2]/div[1]/div[2]/nav/div/div[6]/a[1]')), 30000000);
-console.log(offerlink)
+console.log("offer link",offerlink)
     //going to offer page
     // let offerlink = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div[2]/div[1]/div[2]/nav/div/div[6]/a[1]')),30000000);
     await offerlink.click();
@@ -91,18 +91,22 @@ console.log(offerlink)
     //creating new offer
     let createnewofferbutton = await driver.wait(until.elementLocated(By.xpath('/html/body/div[7]/div/button[1]')),30000000);
     await createnewofferbutton.click();
-    console.log(createnewofferbutton);
+    console.log("offer create",createnewofferbutton);
     let discountcard = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div[2]/div[1]/main/div[2]/div/div[1]/div/div/div/div/div[2]/div[1]/div')),30000000);
     await discountcard.click();
-
+console.log("discountcard",discountcard);
     let offername = await driver.wait(until.elementLocated(By.xpath('//*[@id="textinput-1-input-2"]')),30000000);
     await offername.sendKeys(config.offerdetails.offername);
+    console.log("offername");
     let offerdisplay = await driver.wait(until.elementLocated(By.xpath('//*[@id="textinput-7-input-8"]')),30000000);
     await offerdisplay.sendKeys(config.offerdetails.offerdisplay);
+    console.log("offerdisplay");
     let offerterms = await driver.wait(until.elementLocated(By.xpath('//*[@id="textarea-13-input-14"]')),30000000);
     await offerterms.sendKeys(JSON.stringify(config.offerdetails.offerterms));
+    console.log("offerterms")
     let offertype = await driver.wait(until.elementLocated(By.xpath('//*[@id="dropdown-25-trigger-19-input-20"]')),30000000);
     await offertype.click();
+    console.log("offertype");
     let offertypeoptions = await driver.wait(until.elementLocated(By.xpath('//*[@id="dropdown-25-actionlist"]/div')),30000000);
     let offertypeoption;
     {
@@ -112,7 +116,7 @@ console.log(offerlink)
     await offertypeoption.click();
     let nextbutton1 = await driver.wait(until.elementLocated(By.xpath('/html/body/div[9]/div/div[2]/div[2]/div[2]/div/button')),30000000);
     await nextbutton1.click();
-
+console.log("nextbutton1");
     //next page start for discount type
     
     let discounttype = await driver.wait(until.elementLocated(By.xpath('/html/body/div[9]/div/div[2]/div[1]/div/main/form/div/div/div/div[1]/div[2]/div[1]/div[2]/div/div[1]/div/button')),30000000);
