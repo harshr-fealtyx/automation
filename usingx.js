@@ -15,13 +15,15 @@ async function example() {
   // let driver = await new Builder().forBrowser('chrome').build();
   const config = JSON.parse(fs.readFileSync('data.json', 'utf8'));
   let chromeOptions = new chrome.Options();
+    chromeOptions.setBrowserVersion("116")
+
   chromeOptions.addArguments('--disable-popup-blocking'); // To avoid any popup issues
   // chromeOptions.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2}) 
 chromeOptions.addArguments("--no-sandbox") 
 chromeOptions.addArguments("--disable-setuid-sandbox") 
 chromeOptions.addArguments("--remote-debugging-port=9222") 
 chromeOptions.addArguments('--verbose');
-chromeOptions.addArguments('--headless'); // Run Chrome in headless mode
+// chromeOptions.addArguments('--headless'); // Run Chrome in headless mode
 chromeOptions.addArguments('--disable-gpu'); // Disable GPU acceleration
 chromeOptions.addArguments('--disable-dev-shm-usage'); // Overcome limited resource problems
 chromeOptions.addArguments('--disable-software-rasterizer'); // Avoid issues with GPU rendering
