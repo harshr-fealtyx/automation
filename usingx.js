@@ -1,23 +1,3 @@
-// const { Builder, By } = require('selenium-webdriver');
-
-// (async function example() {
-//   let driver = await new Builder().forBrowser('chrome').build();
-//   try {
-//     await driver.get('https://dashboard.razorpay.com/?screen=sign_in'); // Replace with your target URL
-
-//     // Use XPath to find the element
-//     let emailinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Email or Mobile Number"]')),30000000);
-//       await emailinput.sendKeys('harsh.rawat@fealtyx.com'); // Replace with the input value you want
-//       let emailsubmit = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[3]/button')),30000000);
-//       await emailsubmit.click();
-//       let passwordinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Password"]')),30000000);
-//       await passwordinput.sendKeys()
-//   } finally {
-//       // await driver.quit();
-//       console.log("hii")
-//   }
-// })();
-
 const express = require('express');
 
 const { Builder, By,until } = require('selenium-webdriver');
@@ -25,6 +5,7 @@ const fs = require('fs');
 const app = express();
 const port = 4000;
 const chrome = require('selenium-webdriver/chrome');
+require('dotenv').config();
 
 // Load the config file
 
@@ -67,7 +48,7 @@ async function example() {
     //login and password start
     // Use XPath to find the email input element
     let emailinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Email or Mobile Number"]')),30000000);
-    await emailinput.sendKeys(config.credentials.email);
+    await emailinput.sendKeys(process.env.email);
 
     // Use XPath to find and click the submit button
     let emailsubmit = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[3]/button')),30000000);
@@ -75,7 +56,7 @@ async function example() {
 
     // Use XPath to find the password input element
     let passwordinput = await driver.wait(until.elementLocated(By.xpath('//*[@id="Password"]')),30000000);
-      await passwordinput.sendKeys(config.credentials.password);
+      await passwordinput.sendKeys(process.env.password);
       let submitbuttom = await driver.wait(until.elementLocated(By.xpath('//*[@id="react-root"]/div/div/div[3]/div[2]/div[1]/div[1]/form/div/div/div[4]/button')),30000000);
       await submitbuttom.click();
     //login and password end
@@ -170,7 +151,7 @@ async function example() {
     let enddate = await driver.wait(until.elementLocated(By.xpath('/html/body/div[9]/div/div[2]/div[1]/div/main/form/div/div[3]/div[2]/div[1]/div/div/input')), 30000000);
     enddate.click();
     // enddate.sendKeys("20/08/2024");
-    let selectenddate = await driver.wait(until.elementLocated(By.css(`[title="August 31, 2024"]`)), 30000000);
+    let selectenddate = await driver.wait(until.elementLocated(By.css(`[title="August 30, 2024"]`)), 30000000);
     selectenddate.click();
     let payfail = await driver.wait(until.elementLocated(By.xpath('/html/body/div[9]/div/div[2]/div[1]/div/main/form/div/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[1]/div/button')),30000000);
     await payfail.click();
@@ -185,10 +166,16 @@ async function example() {
 
     let createoffer = await driver.wait(until.elementLocated(By.xpath('/html/body/div[9]/div/div[2]/div[2]/div[2]/div/button[2]')),30000000);
     await createoffer.click();
-
-
+    let ofid=await driver.wait(until.elementsLocated(By.xpath('/html/body/div[1]/div/div[2]/div[1]/main/tabbed-container/content/div/div[2]/div[1]/table/tbody/tr[1]/td[1]/div/div/div/div/a/code')),30000000)
+      // await driver.setTimeout(() => {
+      let text = await ofid[0].getText();
+      console.log("the offer id is ",text);
+    
   } finally {
-    console.log("Automation complete");
+    
+    console.log("automation complete");
+    await driver.quit();
+
   }
 };
 
